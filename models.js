@@ -16,7 +16,10 @@ const Plot = db.define("plot", {
 const Vegetable = db.define("vegetable", {
   name: Sequelize.STRING,
   color: Sequelize.STRING,
-  planted_on: Sequelize.DATE
+  planted_on: {
+      type: Sequelize.DATE,
+      defaultValue: Date.now()
+  }
 });
 
 Plot.belongsTo(Gardener);
